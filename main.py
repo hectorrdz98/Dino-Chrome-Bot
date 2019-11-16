@@ -22,7 +22,7 @@ class DesktopWindow(object):
 
 limits = {
     'cactus':   [ 35 + 80 + 75, 395 + 50],
-    'birds':    [ 35 + 80 + 75, 395 + 30],
+    'birds':    [ 35 + 80 + 75, 395 - 10],
 }
 
 dtop = DesktopWindow()
@@ -33,14 +33,15 @@ holdingKey = False
 minWhites = 7
 whiteSpaces = 0
 
-minHold = 10
+minHold = 7
 holdKeyCont = 0
 
 
 while True:
     pixelCactus = dtop.get_pixel_color(limits['cactus'][0], limits['cactus'][1])
-    dtop.set_pixel_color(limits['cactus'][0], limits['cactus'][1] + 1, colors['red'])
+    # pixelBirds = dtop.get_pixel_color(limits['birds'][0], limits['birds'][1])
     # dtop.set_pixel_color(limits['cactus'][0], limits['cactus'][1] + 1, colors['red'])
+    # dtop.set_pixel_color(limits['birds'][0], limits['birds'][1] + 1, colors['blue'])
     
     if holdingKey:
         holdKeyCont += 1
@@ -56,6 +57,7 @@ while True:
         # print(pixelCactus)
     else:
         whiteSpaces += 1
+        
         if jumping and whiteSpaces >= minWhites:
             # print('down')
             pag.keyDown('down')
